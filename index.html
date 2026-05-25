@@ -3,29 +3,34 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Birthday Surprise</title>
 
-    <!-- FONT AWESOME -->
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
     <!-- Bootstrap -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- Typed JS -->
+
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <!-- Confetti -->
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
 
     <style>
         * {
@@ -41,50 +46,143 @@
                     #ff0080,
                     #7928ca,
                     #00c6ff);
+
+            background-size: 400% 400%;
+
+            animation: bgMove 12s ease infinite;
+
             min-height: 100vh;
+
             color: white;
+
             position: relative;
         }
 
+        @keyframes bgMove {
+
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+
+        }
+
         /* ========================= */
-        /* START SCREEN */
+
+        .music-btn {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 20px;
+
+            width: 65px;
+
+            height: 65px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            background: linear-gradient(45deg,
+                    #ff0080,
+                    #7928ca);
+
+            color: white;
+
+            font-size: 24px;
+
+            z-index: 99999;
+
+            cursor: pointer;
+
+            box-shadow: 0 0 25px white;
+
+            animation: musicGlow 2s infinite alternate;
+        }
+
+        @keyframes musicGlow {
+
+            from {
+                box-shadow: 0 0 10px white;
+            }
+
+            to {
+                box-shadow: 0 0 35px #ff00ff;
+            }
+
+        }
+
         /* ========================= */
 
         .start-screen {
+
             width: 100%;
-            height: 100vh;
+
+            min-height: 100vh;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             padding: 20px;
         }
 
         .start-box {
+
             width: 100%;
+
             max-width: 700px;
+
             background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(12px);
+
+            backdrop-filter: blur(15px);
+
             border-radius: 30px;
+
             padding: 50px;
+
             text-align: center;
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.3);
+
             animation: zoomIn 1s ease;
         }
 
         @keyframes zoomIn {
+
             from {
-                transform: scale(0.5);
+
+                transform: scale(.5);
+
                 opacity: 0;
+
             }
 
             to {
+
                 transform: scale(1);
+
                 opacity: 1;
+
             }
+
         }
 
         .emoji {
-            font-size: 80px;
+
+            font-size: 90px;
+
             animation: bounce 2s infinite;
         }
 
@@ -96,114 +194,105 @@
             }
 
             50% {
-                transform: translateY(-15px);
+                transform: translateY(-20px);
             }
+
         }
 
         h1 {
+
             font-size: 55px;
+
             margin-top: 20px;
-            font-weight: bold;
+
+            font-weight: 800;
+
             text-shadow: 0 0 20px white;
         }
 
         h2 {
+
             margin-top: 15px;
+
             font-size: 28px;
         }
 
         .btn-custom {
+
             border: none;
+
             padding: 15px 45px;
-            margin: 20px 10px;
+
             border-radius: 50px;
+
+            margin: 15px;
+
             font-size: 22px;
+
             font-weight: bold;
-            transition: 0.4s;
+
+            transition: .4s;
         }
 
         .yes-btn {
-            background: #00ff88;
+
+            background: linear-gradient(45deg,
+                    #00ff88,
+                    #00ccff);
+
             color: black;
+
+            box-shadow: 0 0 25px #00ff88;
         }
 
         .yes-btn:hover {
+
             transform: scale(1.1);
+
         }
 
         .no-btn {
-            background: #ff004c;
+
+            background: linear-gradient(45deg,
+                    #ff004c,
+                    #ff6600);
+
             color: white;
+
             position: relative;
+
+            box-shadow: 0 0 25px #ff004c;
         }
 
         /* ========================= */
-        /* BIRTHDAY SCREEN */
-        /* ========================= */
 
-        .birthday-screen {
+        .gift-screen {
+
             display: none;
-            padding: 40px 20px;
+
             min-height: 100vh;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-direction: column;
+
             text-align: center;
-            position: relative;
-            overflow: hidden;
+
+            padding: 20px;
         }
 
-        .birthday-title {
-            font-size: 70px;
-            font-weight: bold;
-            text-shadow: 0 0 25px white;
-            animation: glow 2s infinite alternate;
+        .gift-box {
+
+            font-size: 220px;
+
+            cursor: pointer;
+
+            animation: giftMove 2s infinite;
         }
 
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 15px white;
-            }
-
-            to {
-                text-shadow: 0 0 40px yellow;
-            }
-        }
-
-        .typing {
-            margin-top: 20px;
-            font-size: 32px;
-            font-weight: bold;
-            color: yellow;
-            min-height: 70px;
-        }
-
-        /* ========================= */
-        /* AGE BOX */
-        /* ========================= */
-
-        .info-box {
-            margin-top: 30px;
-        }
-
-        .info-box h3 {
-            margin: 12px 0;
-            font-size: 28px;
-        }
-
-        /* ========================= */
-        /* CENTER IMAGE */
-        /* ========================= */
-
-        .center-img {
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid white;
-            margin-top: 30px;
-            box-shadow: 0 0 35px white;
-            animation: centerMove 3s infinite ease-in-out;
-        }
-
-        @keyframes centerMove {
+        @keyframes giftMove {
 
             0%,
             100% {
@@ -211,44 +300,206 @@
             }
 
             50% {
-                transform: scale(1.08);
+                transform: scale(1.1);
             }
+
+        }
+
+        .gift-text {
+
+            font-size: 55px;
+
+            font-weight: bold;
+
+            margin-bottom: 20px;
+
+            text-shadow: 0 0 25px white;
         }
 
         /* ========================= */
-        /* IMAGE SLIDERS */
+
+        .birthday-screen {
+
+            display: none;
+
+            padding: 30px 20px;
+
+            min-height: 100vh;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .birthday-title {
+
+            font-size: 70px;
+
+            font-weight: 800;
+
+            text-shadow: 0 0 30px white;
+
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+
+            from {
+                text-shadow: 0 0 10px white;
+            }
+
+            to {
+                text-shadow: 0 0 35px yellow;
+            }
+
+        }
+
+        .typing {
+
+            margin-top: 20px;
+
+            min-height: 70px;
+
+            font-size: 30px;
+
+            color: yellow;
+
+            font-weight: bold;
+        }
+
+        .info-box {
+
+            margin-top: 30px;
+        }
+
+        .info-box h3 {
+
+            margin: 10px 0;
+
+            font-size: 28px;
+        }
+
+        /* ========================= */
+
+        .center-box {
+
+            position: relative;
+
+            width: 280px;
+
+            margin: 40px auto;
+        }
+
+        .center-img {
+
+            width: 280px;
+
+            height: 280px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 8px solid white;
+
+            box-shadow: 0 0 35px white;
+
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.07);
+            }
+
+        }
+
+        .heart-ring {
+
+            position: absolute;
+
+            top: -20px;
+
+            left: -20px;
+
+            width: 320px;
+
+            height: 320px;
+
+            border-radius: 50%;
+
+            border: 4px dashed pink;
+
+            animation: rotateHeart 10s linear infinite;
+        }
+
+        @keyframes rotateHeart {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
         /* ========================= */
 
         .slider-container {
+
             width: 100%;
+
             overflow: hidden;
-            margin-top: 50px;
+
+            margin-top: 40px;
         }
 
         .slider {
+
             display: flex;
+
             width: max-content;
+
             gap: 20px;
         }
 
         .slider img {
+
             width: 220px;
+
             height: 280px;
+
             object-fit: cover;
+
             border-radius: 25px;
+
             border: 4px solid white;
-            box-shadow: 0 0 20px white;
+
+            box-shadow: 0 0 25px white;
         }
 
         .left-slide {
+
             animation: leftSlide 18s linear infinite;
         }
 
         .right-slide {
+
             animation: rightSlide 18s linear infinite;
         }
 
         @keyframes leftSlide {
+
             from {
                 transform: translateX(0);
             }
@@ -256,9 +507,11 @@
             to {
                 transform: translateX(-50%);
             }
+
         }
 
         @keyframes rightSlide {
+
             from {
                 transform: translateX(-50%);
             }
@@ -266,77 +519,57 @@
             to {
                 transform: translateX(0);
             }
+
         }
 
-        /* ========================= */
-        /* LOVE SECTION */
-        /* ========================= */
-
-        .love-section {
-            margin-top: 80px;
-        }
-
-        .love-section h2 {
-            font-size: 45px;
-            margin-bottom: 25px;
-        }
-
-        .love-btn {
-            border: none;
-            padding: 14px 40px;
-            border-radius: 50px;
-            margin: 10px;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .love-yes {
-            background: #00ff88;
-            color: black;
-        }
-
-        .love-no {
-            background: red;
-            color: white;
-            position: relative;
-        }
-
-        /* ========================= */
-        /* HEART */
         /* ========================= */
 
         .heart {
+
             position: fixed;
+
             bottom: -20px;
+
             color: #ff006a;
-            animation: floatHeart linear infinite;
+
             z-index: 999;
+
+            animation: floatHeart linear infinite;
         }
 
         @keyframes floatHeart {
+
             0% {
+
                 transform: translateY(0) scale(1);
+
                 opacity: 1;
+
             }
 
             100% {
+
                 transform: translateY(-120vh) scale(1.5);
+
                 opacity: 0;
+
             }
+
         }
 
-        /* ========================= */
-        /* FLOWERS */
-        /* ========================= */
-
         .flower {
+
             position: fixed;
+
             top: -20px;
-            animation: flowerFall linear infinite;
+
             z-index: 999;
+
+            animation: flowerFall linear infinite;
         }
 
         @keyframes flowerFall {
+
             0% {
                 transform: translateY(-10vh) rotate(0deg);
             }
@@ -344,165 +577,129 @@
             100% {
                 transform: translateY(120vh) rotate(360deg);
             }
+
         }
 
         /* ========================= */
-        /* MUSIC BUTTON */
-        /* ========================= */
 
-        .music-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+        .love-section {
+
+            margin-top: 80px;
+        }
+
+        .love-section h2 {
+
+            font-size: 45px;
+
+            margin-bottom: 25px;
+
+            text-shadow: 0 0 20px white;
+        }
+
+        .love-btn {
+
             border: none;
-            background: white;
-            color: #ff0080;
-            font-size: 24px;
-            z-index: 1000;
+
+            padding: 15px 40px;
+
+            border-radius: 50px;
+
+            margin: 10px;
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            transition: .4s;
+
+            text-decoration: none;
+
+            display: inline-block;
         }
 
-        /* ========================= */
-        /* RESPONSIVE */
+        .love-yes {
+
+            background: linear-gradient(45deg,
+                    #00ff88,
+                    #00ccff);
+
+            color: black;
+
+            box-shadow: 0 0 25px #00ff88;
+        }
+
+        .love-no {
+
+            background: linear-gradient(45deg,
+                    #ff004c,
+                    #ff6600);
+
+            color: white;
+
+            position: relative;
+
+            box-shadow: 0 0 25px #ff004c;
+        }
+
         /* ========================= */
 
         @media(max-width:768px) {
 
             h1,
-            .birthday-title {
-                font-size: 36px;
+            .birthday-title,
+            .gift-text {
+
+                font-size: 35px;
             }
 
             h2 {
-                font-size: 22px;
+
+                font-size: 20px;
             }
 
             .typing {
+
                 font-size: 22px;
             }
 
-            .slider img {
-                width: 140px;
+            .center-img {
+
+                width: 190px;
+
                 height: 190px;
             }
 
-            .center-img {
-                width: 180px;
-                height: 180px;
+            .heart-ring {
+
+                width: 220px;
+
+                height: 220px;
+
+                left: -15px;
+            }
+
+            .slider img {
+
+                width: 140px;
+
+                height: 190px;
+            }
+
+            .gift-box {
+
+                font-size: 140px;
             }
 
             .love-section h2 {
-                font-size: 30px;
-            }
-        }
 
-
-        /* LOVE SECTION */
-
-        .love-section {
-            margin-top: 80px;
-            text-align: center;
-        }
-
-        .love-section h2 {
-            font-size: 45px;
-            margin-bottom: 30px;
-            color: white;
-            text-shadow: 0 0 15px white;
-        }
-
-        /* BUTTON COMMON */
-
-        .love-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            margin: 10px;
-            border-radius: 50px;
-            font-size: 22px;
-            font-weight: bold;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: 0.4s;
-        }
-
-        /* YES BUTTON */
-
-        .love-yes {
-            background: linear-gradient(45deg, #00ff88, #00ccff);
-            color: black;
-            box-shadow: 0 0 20px #00ff88;
-        }
-
-        .love-yes:hover {
-            transform: scale(1.1);
-            color: black;
-        }
-
-        /* NO BUTTON */
-
-        .love-no {
-            background: linear-gradient(45deg, #ff004c, #ff6600);
-            color: white;
-            position: relative;
-            box-shadow: 0 0 20px #ff004c;
-        }
-
-        .love-no:hover {
-            transform: scale(1.1);
-        }
-
-        /* MOBILE RESPONSIVE */
-
-        @media(max-width:768px) {
-
-            .love-section h2 {
                 font-size: 28px;
             }
 
             .love-btn {
+
                 font-size: 18px;
-                padding: 12px 28px;
-            }
 
-        }
-
-
-
-        /* MUSIC BUTTON */
-
-        .music-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 65px;
-            height: 65px;
-            border: none;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff0080, #7928ca);
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 9999;
-            box-shadow: 0 0 20px white;
-            transition: 0.4s;
-            animation: musicGlow 2s infinite alternate;
-        }
-
-        .music-btn:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        @keyframes musicGlow {
-
-            from {
-                box-shadow: 0 0 15px white;
-            }
-
-            to {
-                box-shadow: 0 0 35px #ff00ff;
+                padding: 12px 25px;
             }
 
         }
@@ -513,23 +710,20 @@
 <body>
 
     <!-- MUSIC -->
+
     <audio id="music" autoplay loop>
         <source src="hbdy.mp3" type="audio/mp3">
     </audio>
 
     <!-- MUSIC BUTTON -->
+
     <button class="music-btn" onclick="toggleMusic()">
         <i class="fa-solid fa-music"></i>
     </button>
 
-    <!-- MUSIC BUTTON -->
-    <button class="music-btn" onclick="toggleMusic()">
-        <i class="fa-solid fa-music"></i>
-    </button>
-
-    <!-- ========================= -->
+    <!-- ====================== -->
     <!-- START SCREEN -->
-    <!-- ========================= -->
+    <!-- ====================== -->
 
     <div class="start-screen" id="startScreen">
 
@@ -539,9 +733,9 @@
 
             <h1>Today Is Your Birthday Dear ?</h1>
 
-            <h2>Open Your Special Surprise 🎁</h2>
+            <h2>Click YES To Continue 🎁</h2>
 
-            <button class="btn-custom yes-btn" onclick="openBirthday()">
+            <button class="btn-custom yes-btn" onclick="openGift()">
                 YES 💖
             </button>
 
@@ -553,9 +747,31 @@
 
     </div>
 
-    <!-- ========================= -->
+    <!-- ====================== -->
+    <!-- GIFT SCREEN -->
+    <!-- ====================== -->
+
+    <div class="gift-screen" id="giftScreen">
+
+        <h1 class="gift-text">
+            OH REALLY 😍
+            <br>
+            Today Is Your Birthday 🎂
+            <br>
+            Open Your Gift 🎁
+        </h1>
+
+        <div class="gift-box" onclick="openBirthday()">
+            🎁
+        </div>
+
+        <h2>Click Gift Box 💖</h2>
+
+    </div>
+
+    <!-- ====================== -->
     <!-- BIRTHDAY SCREEN -->
-    <!-- ========================= -->
+    <!-- ====================== -->
 
     <div class="birthday-screen" id="birthdayScreen">
 
@@ -569,7 +785,7 @@
             <span id="typed"></span>
         </div>
 
-        <!-- NAME + DOB + AGE -->
+        <!-- INFO -->
 
         <div class="info-box">
 
@@ -585,9 +801,15 @@
 
         <!-- CENTER IMAGE -->
 
-        <img src="img/aa5.jpeg" class="center-img">
+        <div class="center-box">
 
-        <!-- LEFT TO RIGHT -->
+            <div class="heart-ring"></div>
+
+            <img src="img/aa5.jpeg" class="center-img">
+
+        </div>
+
+        <!-- SLIDER 1 -->
 
         <div class="slider-container">
 
@@ -608,7 +830,7 @@
 
         </div>
 
-        <!-- RIGHT TO LEFT -->
+        <!-- SLIDER 2 -->
 
         <div class="slider-container">
 
@@ -635,12 +857,10 @@
 
             <h2>Do You Like Me ? 💖</h2>
 
-            <!-- YES BUTTON -->
             <a href="Happy Birthday.html" class="love-btn love-yes">
                 YES 😍
             </a>
 
-            <!-- NO BUTTON -->
             <button class="love-btn love-no" id="loveNo">
                 NO 🙈
             </button>
@@ -649,15 +869,15 @@
 
     </div>
 
-    <!-- ========================= -->
-    <!-- SCRIPT -->
-    <!-- ========================= -->
+    <!-- ====================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ====================== -->
 
     <script>
 
-        // =====================
+        // ======================
         // AGE CALCULATE
-        // =====================
+        // ======================
 
         const dob = new Date("1989-05-26");
 
@@ -673,33 +893,50 @@
 
         if (
             month < 0 ||
-            (month === 0 &&
-                today.getDate() < dob.getDate())
+            (
+                month === 0 &&
+                today.getDate() < dob.getDate()
+            )
         ) {
             age--;
         }
 
-        document.getElementById("age").innerHTML =
+        document.getElementById("age")
+            .innerHTML =
             "Age : " + age + " Years 🎂";
 
-        // =====================
-        // START BUTTON
-        // =====================
+        // ======================
+        // OPEN GIFT
+        // ======================
+
+        function openGift() {
+
+            document.getElementById("startScreen")
+                .style.display = "none";
+
+            document.getElementById("giftScreen")
+                .style.display = "flex";
+
+        }
+
+        // ======================
+        // OPEN BIRTHDAY
+        // ======================
 
         function openBirthday() {
 
-            document.getElementById("startScreen")
+            document.getElementById("giftScreen")
                 .style.display = "none";
 
             document.getElementById("birthdayScreen")
                 .style.display = "block";
 
-            // Music Start
+            // MUSIC
 
             document.getElementById("music")
                 .play();
 
-            // Typed JS
+            // TYPED TEXT
 
             new Typed('#typed', {
 
@@ -709,7 +946,9 @@
 
                     'Stay Happy Forever ✨',
 
-                    'You Are So Special 🥰',
+                    'You Are Very Special 🥰',
+
+                    'God Bless You Always 🙏',
 
                     'May All Dreams Come True 🎂'
 
@@ -723,15 +962,15 @@
 
             });
 
-            // Confetti
+            // CONFETTI
 
             startConfetti();
 
         }
 
-        // =====================
+        // ======================
         // CONFETTI
-        // =====================
+        // ======================
 
         function startConfetti() {
 
@@ -753,14 +992,15 @@
 
         }
 
-        // =====================
+        // ======================
         // NO BUTTON MOVE
-        // =====================
+        // ======================
 
         const noBtn =
             document.getElementById("noBtn");
 
-        noBtn.addEventListener("mouseover",
+        noBtn.addEventListener(
+            "mouseover",
             () => {
 
                 const x =
@@ -772,16 +1012,18 @@
                 noBtn.style.transform =
                     `translate(${x}px, ${y}px)`;
 
-            });
+            }
+        );
 
-        // =====================
+        // ======================
         // LOVE NO BUTTON MOVE
-        // =====================
+        // ======================
 
         const loveNo =
             document.getElementById("loveNo");
 
-        loveNo.addEventListener("mouseover",
+        loveNo.addEventListener(
+            "mouseover",
             () => {
 
                 const x =
@@ -793,11 +1035,12 @@
                 loveNo.style.transform =
                     `translate(${x}px, ${y}px)`;
 
-            });
+            }
+        );
 
-        // =====================
+        // ======================
         // HEARTS
-        // =====================
+        // ======================
 
         function createHeart() {
 
@@ -829,9 +1072,9 @@
 
         setInterval(createHeart, 300);
 
-        // =====================
+        // ======================
         // FLOWERS
-        // =====================
+        // ======================
 
         function createFlower() {
 
@@ -863,43 +1106,19 @@
 
         setInterval(createFlower, 500);
 
-        // =====================
+        // ======================
         // MUSIC
-        // =====================
-
-        function toggleMusic() {
-
-            const music =
-                document.getElementById("music");
-
-            if (music.paused) {
-
-                music.play();
-
-            } else {
-
-                music.pause();
-
-            }
-
-        }
-
-
-        // =====================
-        // MUSIC PLAY / PAUSE
-        // =====================
+        // ======================
 
         const music =
             document.getElementById("music");
 
         window.onload = () => {
 
-            // AUTO PLAY
-
             music.play().catch(() => {
 
                 console.log(
-                    "Autoplay blocked by browser"
+                    "Autoplay Blocked"
                 );
 
             });
